@@ -32,11 +32,6 @@ onMounted(() => {
       end: 'max',
       invalidateOnRefresh: true,
       scrub: true,
-      onSnapComplete: (self) => {
-        if (self.progress === 0) {
-          window.scrollTo(0, 0);
-        }
-      }
     },
   });
 });
@@ -73,8 +68,24 @@ onMounted(async () => {
       <p data-speed="-2" data-direction="left">Musician</p>
     </div>
   </div>
-  <div class="flex section h-screen w-full bg-emerald-100">
+  <div class="flex section h-screen min-h-fit w-full bg-blue-50 justify-center items-center">
 
+    <div class="flex h-fit space-x-20">
+      <iframe
+          class="w-xl h-[80vh]"
+          src="https://open.spotify.com/embed/playlist/70tdiIds2OZYQMAGaLY4Z6?utm_source=generator&theme=0"
+          width="100%"
+          height="352"
+          frameBorder="0"
+          allowfullscreen=""
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          loading="lazy"
+      >
+      </iframe>
+      <div class="bg-blue-500 w-xl rounded-2xl">
+        Hello
+      </div>
+    </div>
   </div>
 </div>
 </template>
