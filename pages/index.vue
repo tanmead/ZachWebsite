@@ -1,35 +1,84 @@
 <script setup>
-import gsap from 'gsap';
+import { gsap } from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
+const scroll = ref(true)
 
 onMounted(() => {
-  gsap.to("[data-speed]", {
-    y: (i, el) => (1 - parseFloat(el.getAttribute("data-speed"))) * ScrollTrigger.maxScroll(window) ,
-    ease: "none",
+
+  window.scrollTo(0, 0);
+
+  gsap.to('[data-speed]', {
+    x: (i, el) => {
+      if (el.getAttribute('data-direction') === 'left') {
+        const speed = parseFloat(el.getAttribute('data-speed'));
+        console.log(`Element: ${el.textContent}, Speed: ${speed}, Direction: Left`);
+        return -(1 - speed) * ScrollTrigger.maxScroll(window); // Move left
+      }
+      return 0; // No horizontal movement for other elements
+    },
+    y: (i, el) => {
+      if (el.getAttribute('data-direction') === 'up') {
+        const speed = parseFloat(el.getAttribute('data-speed'));
+        console.log(`Element: ${el.textContent}, Speed: ${speed}, Direction: Up`);
+        return (1 - speed) * ScrollTrigger.maxScroll(window); // Move up
+      }
+      return ScrollTrigger.maxScroll(window); // No vertical movement for other elements
+    },
+    ease: 'none',
     scrollTrigger: {
       start: 0,
-      end: "max",
+      end: 'max',
       invalidateOnRefresh: true,
-      scrub: 0
-    }
+      scrub: true,
+      onSnapComplete: (self) => {
+        if (self.progress === 0) {
+          window.scrollTo(0, 0);
+        }
+      }
+    },
   });
+});
+
+onMounted(async () => {
+  if (import.meta.client) {
+    await nextTick(); // Wait for the DOM to update
+    gsap.registerPlugin(ScrollTrigger);
+    const sections = gsap.utils.toArray('.section');
+
+    sections.forEach((section, index) => {
+      ScrollTrigger.create({
+        trigger: section,
+        start: 'top top',
+        end: 'bottom top',
+        snap: {
+          snapTo: 1 / (sections.length - 1),
+          duration: { min: 0.3, max: 0.8 },
+          ease: 'power3.inOut',
+        },
+      });
+    });
+  }
 })
-
-
 
 </script>
 
 <template>
-<div>
-  <div class="flex h-[180vh] bg-gradient-to-r from-black to-blue-900 text-white">
-    <div class="flex flex-col h-fit w-7xl mx-auto my-60 text-8xl underline">
-      <p data-speed="0.25">Producer</p>
-      <p data-speed="0.65" class="text-center">Engineer</p>
-      <p data-speed="0.4" class="text-right">Musician</p>
+<div class="bg-gradient-to-r from-black to-blue-900 overflow-hidden">
+  <div class="flex section h-[160vh] text-white">
+    <div class="flex h-screen w-7xl mx-auto text-8xl justify-between items-center underline">
+      <p data-speed="2" data-direction="up">Producer</p>
+      <p data-speed="-2" data-direction="up">Engineer</p>
+      <p data-speed="-2" data-direction="left">Musician</p>
     </div>
   </div>
-  <div class="flex h-screen bg-emerald-100"></div>
+  <div class="flex section h-screen w-full bg-emerald-100">
+
+  </div>
 </div>
 </template>
+
+<style>
+
+</style>

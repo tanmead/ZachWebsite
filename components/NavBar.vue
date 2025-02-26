@@ -11,11 +11,13 @@ import {FontAwesomeIcon} from "@fortawesome/vue-fontawesome";
       <p>Producer | Engineer | Musician</p>
     </div>
     <div class="flex justify-between space-x-6 w-fit text-xl">
-      <font-awesome-icon icon="fab fa-spotify" />
-      <font-awesome-icon icon="fa-solid fa-music" />
-      <font-awesome-icon icon="fab fa-youtube" />
-      <font-awesome-icon icon="fab fa-facebook" />
-      <font-awesome-icon icon="fab fa-instagram" />
+      <ClientOnly>
+        <FontAwesomeIcon :icon="['fab', 'spotify']" />
+        <FontAwesomeIcon :icon="['fab', 'facebook']" />
+        <FontAwesomeIcon :icon="['fab', 'instagram']" />
+        <FontAwesomeIcon :icon="['fab', 'youtube']" />
+        <FontAwesomeIcon :icon="['fas', 'music']" />
+      </ClientOnly>
     </div>
   </nav>
 </header>
