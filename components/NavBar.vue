@@ -12,11 +12,21 @@ import {FontAwesomeIcon} from "@fortawesome/vue-fontawesome";
     </div>
     <div class="flex justify-between space-x-6 w-fit text-xl">
       <ClientOnly>
-        <FontAwesomeIcon :icon="['fab', 'spotify']" />
-        <FontAwesomeIcon :icon="['fab', 'facebook']" />
-        <FontAwesomeIcon :icon="['fab', 'instagram']" />
-        <FontAwesomeIcon :icon="['fab', 'youtube']" />
-        <FontAwesomeIcon :icon="['fas', 'music']" />
+        <a href=# class="hover:text-gray-400 transition duration-200">
+          <FontAwesomeIcon :icon="['fab', 'spotify']"/>
+        </a>
+        <a href=# class="hover:text-gray-400 transition duration-200">
+          <FontAwesomeIcon :icon="['fab', 'facebook']"/>
+        </a>
+        <a href=# class="hover:text-gray-400 transition duration-200">
+          <FontAwesomeIcon :icon="['fab', 'instagram']"/>
+        </a>
+        <a href=# class="hover:text-gray-400 transition duration-200">
+          <FontAwesomeIcon :icon="['fab', 'youtube']"/>
+        </a>
+        <a href=# class="hover:text-gray-400 transition duration-200">
+          <FontAwesomeIcon :icon="['fas', 'music']"/>
+        </a>
       </ClientOnly>
     </div>
   </nav>

@@ -1,6 +1,7 @@
 <script setup>
 import { gsap } from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import ProjectCarousel from "~/components/ProjectCarousel.vue";
 
 gsap.registerPlugin(ScrollTrigger);
 const scroll = ref(true)
@@ -13,7 +14,6 @@ onMounted(() => {
     x: (i, el) => {
       if (el.getAttribute('data-direction') === 'left') {
         const speed = parseFloat(el.getAttribute('data-speed'));
-        console.log(`Element: ${el.textContent}, Speed: ${speed}, Direction: Left`);
         return -(1 - speed) * ScrollTrigger.maxScroll(window); // Move left
       }
       return 0; // No horizontal movement for other elements
@@ -21,7 +21,6 @@ onMounted(() => {
     y: (i, el) => {
       if (el.getAttribute('data-direction') === 'up') {
         const speed = parseFloat(el.getAttribute('data-speed'));
-        console.log(`Element: ${el.textContent}, Speed: ${speed}, Direction: Up`);
         return (1 - speed) * ScrollTrigger.maxScroll(window); // Move up
       }
       return ScrollTrigger.maxScroll(window); // No vertical movement for other elements
@@ -68,11 +67,10 @@ onMounted(async () => {
       <p data-speed="-2" data-direction="left">Musician</p>
     </div>
   </div>
-  <div class="flex section h-screen min-h-fit w-full bg-blue-50 justify-center items-center">
-
+  <div class="flex section h-screen min-h-[800px] w-full bg-blue-50 justify-center items-center pt-4">
     <div class="flex h-fit space-x-20">
       <iframe
-          class="w-xl h-[80vh]"
+          class="w-xl h-[700px]"
           src="https://open.spotify.com/embed/playlist/70tdiIds2OZYQMAGaLY4Z6?utm_source=generator&theme=0"
           width="100%"
           height="352"
@@ -82,9 +80,7 @@ onMounted(async () => {
           loading="lazy"
       >
       </iframe>
-      <div class="bg-blue-500 w-xl rounded-2xl">
-        Hello
-      </div>
+      <ProjectCarouselTest />
     </div>
   </div>
 </div>
