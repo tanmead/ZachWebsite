@@ -67,7 +67,7 @@ onMounted(async () => {
       <p data-speed="-2" data-direction="left">Musician</p>
     </div>
   </div>
-  <div class="flex section h-screen min-h-[800px] w-full bg-blue-50 justify-center items-center pt-4">
+  <div class="flex section h-screen min-h-[800px] w-full justify-center items-center pt-4">
     <div class="flex h-fit space-x-20">
       <iframe
           class="w-xl h-[700px]"

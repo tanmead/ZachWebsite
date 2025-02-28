@@ -110,7 +110,7 @@ onUnmounted(() => {
     </div>
     <button
         class="text-2xl bg-white h-fit p-2 rounded-4xl flex items-center"
-        @click="() => { prevSlide(); stopAutoSlide(); }"
+        @click="() => { nextSlide(); stopAutoSlide(); }"
     >
       <ClientOnly>
         <FontAwesomeIcon :icon="['fas', 'arrow-right']" class="px-1 py-4"/>

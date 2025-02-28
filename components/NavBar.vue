@@ -12,19 +12,19 @@ import {FontAwesomeIcon} from "@fortawesome/vue-fontawesome";
     </div>
     <div class="flex justify-between space-x-6 w-fit text-xl">
       <ClientOnly>
-        <a href=# class="hover:text-gray-400 transition duration-200">
+        <a href='https://open.spotify.com/artist/2NDqx1z4TTkFr0QOnk8nX3?si=CP0QgzEHSh6cQa7mXNnkQA' target="_blank" class="hover:text-gray-400 transition duration-200">
           <FontAwesomeIcon :icon="['fab', 'spotify']"/>
         </a>
-        <a href=# class="hover:text-gray-400 transition duration-200">
+        <a href='https://www.facebook.com/zachmannomusic' target="_blank" class="hover:text-gray-400 transition duration-200">
           <FontAwesomeIcon :icon="['fab', 'facebook']"/>
         </a>
-        <a href=# class="hover:text-gray-400 transition duration-200">
+        <a href='https://www.instagram.com/zacharymanno/' target="_blank" class="hover:text-gray-400 transition duration-200">
           <FontAwesomeIcon :icon="['fab', 'instagram']"/>
         </a>
         <a href=# class="hover:text-gray-400 transition duration-200">
           <FontAwesomeIcon :icon="['fab', 'youtube']"/>
         </a>
-        <a href=# class="hover:text-gray-400 transition duration-200">
+        <a href='https://music.apple.com/us/artist/haley-mae-campbell/962444490' target="_blank" class="hover:text-gray-400 transition duration-200">
           <FontAwesomeIcon :icon="['fas', 'music']"/>
         </a>
       </ClientOnly>
