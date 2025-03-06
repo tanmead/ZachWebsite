@@ -8,13 +8,14 @@ const scroll = ref(true)
 
 onMounted(() => {
 
-  window.scrollTo(0, 0);
-
   gsap.to('[data-speed]', {
     x: (i, el) => {
       if (el.getAttribute('data-direction') === 'left') {
         const speed = parseFloat(el.getAttribute('data-speed'));
         return -(1 - speed) * ScrollTrigger.maxScroll(window); // Move left
+      } else if (el.getAttribute('data-direction') === 'right') {
+        const speed = parseFloat(el.getAttribute('data-speed'));
+        return (1 + speed) * ScrollTrigger.maxScroll(window); //Move Right
       }
       return 0; // No horizontal movement for other elements
     },
@@ -47,8 +48,8 @@ onMounted(async () => {
         start: 'top top',
         end: 'bottom top',
         snap: {
-          snapTo: 1 / (sections.length - 1),
-          duration: { min: 0.3, max: 0.8 },
+          snapTo: sections.map(section => ScrollTrigger.positionInViewport(section, 'top')),
+          duration: { min: .4, max: .8 },
           ease: 'power3.inOut',
         },
       });
@@ -60,18 +61,22 @@ onMounted(async () => {
 
 <template>
 <div class="bg-gradient-to-r from-black to-blue-900 overflow-hidden">
-  <div class="flex section h-[160vh] text-white">
-    <div class="flex h-screen w-7xl mx-auto text-8xl justify-between items-center underline">
+  <div class="hidden md:flex section h-[160vh] text-white">
+    <div class="hidden md:flex h-screen w-7xl mx-auto text-8xl justify-between items-center underline">
       <p data-speed="2" data-direction="up">Producer</p>
       <p data-speed="-2" data-direction="up">Engineer</p>
       <p data-speed="-2" data-direction="left">Musician</p>
     </div>
   </div>
-  <div class="flex section h-screen min-h-[800px] w-full justify-center items-center pt-4">
-    <div class="flex h-fit space-x-20">
+  <div class="flex flex-col md:hidden section h-screen w-full text-6xl justify-center space-y-6 items-center underline text-white">
+    <p data-speed="-2" data-direction="left">Producer</p>
+    <p data-speed="2" data-direction="right">Engineer</p>
+    <p data-speed="-2" data-direction="left">Musician</p>
+  </div>
+  <div class="flex section h-screen min-h-[800px] w-full justify-center items-center">
       <iframe
-          class="w-xl h-[700px]"
-          src="https://open.spotify.com/embed/playlist/70tdiIds2OZYQMAGaLY4Z6?utm_source=generator&theme=0"
+          class="w-5/6 md:w-1/2 h-[600px]"
+          src="https://open.spotify.com/embed/playlist/1v4lxr6U7X46BmVNVlq268?utm_source=generator"
           width="100%"
           height="352"
           frameBorder="0"
@@ -80,8 +85,6 @@ onMounted(async () => {
           loading="lazy"
       >
       </iframe>
-      <ProjectCarouselTest />
-    </div>
   </div>
 </div>
 </template>
