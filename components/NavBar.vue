@@ -39,19 +39,16 @@ router.afterEach(() => {
         </ClientOnly>
       </div>
       <div class="hidden md:flex justify-between space-x-6 w-fit text-xl">
-        <NuxtLink to="/contact">Contact</NuxtLink>
+        <NuxtLink to="/contact" class="hover:text-gray-400 transition duration-200">Contact Me</NuxtLink>
         <ClientOnly>
-          <a href='https://open.spotify.com/artist/2NDqx1z4TTkFr0QOnk8nX3?si=CP0QgzEHSh6cQa7mXNnkQA' target="_blank" class="hover:text-gray-400 transition duration-200">
+          <a href='https://open.spotify.com/playlist/1v4lxr6U7X46BmVNVlq268?si=gTU74uOrQuyHsw587waTKQ' target="_blank" class="hover:text-gray-400 transition duration-200">
             <FontAwesomeIcon :icon="['fab', 'spotify']"/>
-          </a>
-          <a href='https://www.facebook.com/zachmannomusic' target="_blank" class="hover:text-gray-400 transition duration-200">
-            <FontAwesomeIcon :icon="['fab', 'facebook']"/>
           </a>
           <a href='https://www.instagram.com/zacharymanno/' target="_blank" class="hover:text-gray-400 transition duration-200">
             <FontAwesomeIcon :icon="['fab', 'instagram']"/>
           </a>
-          <a href='https://music.apple.com/us/artist/haley-mae-campbell/962444490' target="_blank" class="hover:text-gray-400 transition duration-200">
-            <FontAwesomeIcon :icon="['fas', 'music']"/>
+          <a href='https://www.facebook.com/zachmannomusic' target="_blank" class="hover:text-gray-400 transition duration-200">
+            <FontAwesomeIcon :icon="['fab', 'facebook']"/>
           </a>
         </ClientOnly>
       </div>
@@ -63,17 +60,14 @@ router.afterEach(() => {
     >
       <NuxtLink to="/contact">Contact</NuxtLink>
       <ClientOnly>
-        <a href='https://open.spotify.com/artist/2NDqx1z4TTkFr0QOnk8nX3?si=CP0QgzEHSh6cQa7mXNnkQA' target="_blank" class="hover:text-gray-400 transition duration-200">
+        <a href='https://open.spotify.com/playlist/1v4lxr6U7X46BmVNVlq268?si=gTU74uOrQuyHsw587waTKQ' target="_blank" class="hover:text-gray-400 transition duration-200">
           <FontAwesomeIcon :icon="['fab', 'spotify']"/>
-        </a>
-        <a href='https://www.facebook.com/zachmannomusic' target="_blank" class="hover:text-gray-400 transition duration-200">
-          <FontAwesomeIcon :icon="['fab', 'facebook']"/>
         </a>
         <a href='https://www.instagram.com/zacharymanno/' target="_blank" class="hover:text-gray-400 transition duration-200">
           <FontAwesomeIcon :icon="['fab', 'instagram']"/>
         </a>
-        <a href='https://music.apple.com/us/artist/haley-mae-campbell/962444490' target="_blank" class="hover:text-gray-400 transition duration-200">
-          <FontAwesomeIcon :icon="['fas', 'music']"/>
+        <a href='https://www.facebook.com/zachmannomusic' target="_blank" class="hover:text-gray-400 transition duration-200">
+          <FontAwesomeIcon :icon="['fab', 'facebook']"/>
         </a>
       </ClientOnly>
     </div>

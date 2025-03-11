@@ -1,7 +1,6 @@
 <script setup>
 import { gsap } from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import ProjectCarousel from "~/components/ProjectCarousel.vue";
 
 gsap.registerPlugin(ScrollTrigger);
 const scroll = ref(true)
@@ -73,9 +72,9 @@ onMounted(async () => {
     <p data-speed="2" data-direction="right">Engineer</p>
     <p data-speed="-2" data-direction="left">Musician</p>
   </div>
-  <div class="flex section h-screen min-h-[700px] w-full justify-center items-center">
+  <div class="flex flex-col section h-screen min-h-[700px] w-full justify-center items-center">
       <iframe
-          class="w-5/6 md:w-1/2 h-[600px]"
+          class="w-5/6 md:w-4xl h-[500px]"
           src="https://open.spotify.com/embed/playlist/1v4lxr6U7X46BmVNVlq268?utm_source=generator"
           width="100%"
           height="352"
@@ -85,6 +84,9 @@ onMounted(async () => {
           loading="lazy"
       >
       </iframe>
+    <div class="flex w-full px-8 items-center justify-center text-center my-2">
+      <p class="text-white text-xl">Produced, Mixed, and Mastered by Zachary Manno</p>
+    </div>
   </div>
 </div>
 </template>
