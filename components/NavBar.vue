@@ -38,8 +38,8 @@ router.afterEach(() => {
           />
         </ClientOnly>
       </div>
-      <div class="hidden md:flex justify-between space-x-6 w-fit text-xl">
-        <NuxtLink to="/contact" class="hover:text-gray-400 transition duration-200">Contact Me</NuxtLink>
+      <div class="hidden md:flex justify-between space-x-6 w-fit text-xl pl-14">
+        <NuxtLink to="/contact" class="hover:text-gray-400 transition duration-200">Contact</NuxtLink>
         <ClientOnly>
           <a href='https://open.spotify.com/playlist/1v4lxr6U7X46BmVNVlq268?si=gTU74uOrQuyHsw587waTKQ' target="_blank" class="hover:text-gray-400 transition duration-200">
             <FontAwesomeIcon :icon="['fab', 'spotify']"/>
