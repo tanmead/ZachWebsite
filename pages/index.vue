@@ -35,27 +35,6 @@ onMounted(() => {
   });
 });
 
-onMounted(async () => {
-  if (import.meta.client) {
-    await nextTick(); // Wait for the DOM to update
-    gsap.registerPlugin(ScrollTrigger);
-    const sections = gsap.utils.toArray('.section');
-
-    sections.forEach((section, index) => {
-      ScrollTrigger.create({
-        trigger: section,
-        start: 'top top',
-        end: 'bottom top',
-        snap: {
-          snapTo: sections.map(section => ScrollTrigger.positionInViewport(section, 'top')),
-          duration: { min: .4, max: .8 },
-          ease: 'power3.inOut',
-        },
-      });
-    });
-  }
-})
-
 </script>
 
 <template>
