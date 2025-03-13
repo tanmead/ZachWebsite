@@ -32,7 +32,7 @@ onMounted(() => {
 <template>
   <div class="justify-items-center">
     <!--  Carousel-->
-    <div class="flex items-center">
+    <div class="flex items-center w-2xs md:w-xl">
       <!--    Image Frame-->
       <div class="flex w-2xs md:w-xl overflow-hidden">
         <div
