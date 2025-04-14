@@ -15,7 +15,7 @@
     <div class="mb-10">
       <a href="mailto:info@zacharymanno.com" class="underline text-blue-400 text-2xl">info@zacharymanno.com</a>
     </div>
-    <PictureCarousel />
+    <PictureCarousel class="mx-auto"/>
   </div>
 </div>
 </template>
